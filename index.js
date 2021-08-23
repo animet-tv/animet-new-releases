@@ -6,9 +6,23 @@ const dbConfig = require('./app/config/mongodb.config');
 const cron = require('cron').CronJob;
 const logger = require('morgan');
 const MainController = require('./app/main-controller');
+const path = require('path');
+
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded());
 app.use('/favicon.ico', express.static('./app/images/favicon032x32.png'));
+
+app.get('/', (req,res) => {
+    try {
+        res.sendFile(path.resolve('app/public/403.html'));
+    } catch (error) {
+        console.log(error);
+    }
+})
+
+app.get('*', function(req, res){
+    res.sendFile(path.resolve('app/public/403.html'));
+});
 
 // Configuring the database
 const mongoose = require('mongoose');
