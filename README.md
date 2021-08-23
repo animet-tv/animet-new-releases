@@ -8,3 +8,10 @@
     - Keeps track of old pushed message 
     - Multiple messages won't be spammed it will be send on cooldown rate
     - Will auto detect new data item from provided endpoint
+
+## env
+    DB_CONNECTION_URL = mongodb://localhost:27017/violet-db (Your-db-conn-string)
+    
+    WEBHOOK_URL = https://discord.com/api/webhooks/ (Your-webhook-url)
+    
+    MAIN_SERVER_URL=http://localhost:3030/ (main-server-domain)
